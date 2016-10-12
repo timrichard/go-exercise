@@ -1,31 +1,36 @@
-/*
-First, you mash in a random large number to start with. Then, repeatedly do the following:
-
-If the number is divisible by 3, divide it by 3.
-
-If it's not, either add 1 or subtract 1 (to make it divisible by 3), then divide it by 3.
-
-The game stops when you reach "1".
-
-*/
-
 package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
+var attempt int = 1;
+
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
+	var runningTotal int = rand.Int()
 
-	trecimate(33)
-	// expected output of trecimate(33)
-	// Have 33, adding 0
-	// Have 11, adding 1
-	// Have 4, adding -1
-	// Have 1, stopping
-
+	for notYetOne := true; notYetOne; notYetOne = (runningTotal != 1) {
+		runningTotal = trecimate(runningTotal)
+	}
 }
 
-func trecimate(n int) {
-	fmt.Println("Replace this to get the required output")
+func trecimate(currentValue int) int {
+	fmt.Printf("Attempt %d. ", attempt)
+	attempt = attempt + 1
+	fmt.Printf("Value was %d. ", currentValue)
+
+	if (currentValue - 1) % 3 == 0 {
+		currentValue = currentValue - 1
+		fmt.Printf("Subtracting one. Value now %d. ", currentValue)
+	} else if (currentValue + 1) % 3 == 0 {
+		currentValue = currentValue + 1
+		fmt.Printf("Adding one. Value now %d. ", currentValue)
+	}
+
+	currentValue = currentValue / 3
+	fmt.Printf("Dividing by three. Value is now %d.\n", currentValue)
+	return currentValue
 }
