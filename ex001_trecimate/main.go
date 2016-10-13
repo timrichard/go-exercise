@@ -6,8 +6,6 @@ import (
 	"time"
 )
 
-var attempt int = 1;
-
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	var runningTotal int = rand.Int()
@@ -18,8 +16,6 @@ func main() {
 }
 
 func trecimate(currentValue int) int {
-	fmt.Printf("Attempt %d. ", attempt)
-	attempt = attempt + 1
 	fmt.Printf("Value was %d. ", currentValue)
 
 	if (currentValue - 1) % 3 == 0 {
