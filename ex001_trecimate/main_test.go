@@ -4,29 +4,17 @@ import (
 	"testing"
 )
 
+func assert(actual int, expected int, errorMessage string, errorReporter *testing.T) {
+	if (actual != expected) {
+		errorReporter.Errorf(errorMessage, expected, actual)
+	}
+}
+
 func TestTrecimate(t *testing.T) {
-	var expected = 1
-	var actual = trecimate(3)
-	if (actual != expected) {
-		t.Errorf("canDivideByThree: Expected %d", expected)
-		t.Errorf("canDivideByThree: Actual %d", actual)
-	}
 
-	expected = 3
-	actual = trecimate(10)
-
-	if (actual != expected) {
-		t.Errorf("subtractOneAndDivideByThree: Expected %d", expected)
-		t.Errorf("subtractOneAndDivideByThree: Actual %d", actual)
-	}
-
-	expected = 12
-	actual = trecimate(35)
-
-	if (actual != expected) {
-		t.Errorf("addOneAndDivideByThree: Expected %d", expected)
-		t.Errorf("addOneAndDivideByThree: Actual %d", actual)
-	}
+	assert(trecimate(3), 1, "canDivide By Three: Expected %d, got %d", t)
+	assert(trecimate(10), 3, "Subtract one, divide by three: Expected %d, got %d", t)
+	assert(trecimate(35), 12, "Add one, divide by three: Expected %d, got %d", t)
 
 }
 
