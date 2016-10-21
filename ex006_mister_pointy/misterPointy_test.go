@@ -22,6 +22,7 @@ func TestAddPointers(t *testing.T) {
 	}
 }
 
+
 func TestAddReturnPointer(t *testing.T) {
 	resultPointer := addReturnPointer(8, 13)
 	result := *resultPointer
@@ -31,6 +32,7 @@ func TestAddReturnPointer(t *testing.T) {
 		t.Error("Expected ", expected, " but got ", result)
 	}
 }
+
 
 func TestAddPointersReturnPointer(t *testing.T) {
 	a := 13
