@@ -32,10 +32,9 @@ func play(player *person) {
 func main() {
 	timeUp := false
 
-	players := make([]person, 2)
-
-	players[0] = person{name: "Ed", score: 0}
-	players[1] = person{name: "Natasha", score: 0}
+	players := []person{}
+	players = append(players, person{name: "Ed", score: 0})
+	players = append(players, person{name: "Natasha", score: 0})
 
 	go func() {
 		time.Sleep(time.Second * 30)
