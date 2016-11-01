@@ -11,7 +11,7 @@ type person struct {
 	score int
 }
 
-func play(player *person) {
+func (player *person) play() {
 
 	for {
 		roll := rand.Intn(6) + 1
@@ -44,7 +44,7 @@ func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 
 	for i := range players {
-		go play(&players[i])
+		go players[i].play()
 	}
 
 	for timeUp == false {
