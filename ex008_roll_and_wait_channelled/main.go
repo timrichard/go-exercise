@@ -68,9 +68,6 @@ func main() {
 			fmt.Println("\nTime up!")
 
 			for i := range players {
-				//if (&players[i] == currentWinner) {
-				//	fmt.Printf("%s with %d", players[i].name, players[i].score)
-				//}
 				fmt.Printf("%s scored %d\n", players[i].name, players[i].score)
 			}
 
